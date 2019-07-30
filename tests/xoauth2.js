@@ -36,7 +36,7 @@ module.exports["XOAUTH2"] = {
 
     "Unknown user": function(test) {
         var cmds = [
-            "A1 AUTHENTICATE XOAUTH2 " + new Buffer(["user=unknown", "auth=Bearer zzz", "", ""].join("\x01")).toString("base64"),
+            "A1 AUTHENTICATE XOAUTH2 " + Buffer.from(["user=unknown", "auth=Bearer zzz", "", ""].join("\x01")).toString("base64"),
             "ZZ LOGOUT"
         ];
 
@@ -49,7 +49,7 @@ module.exports["XOAUTH2"] = {
 
     "Known user, invalid token": function(test) {
         var cmds = [
-            "A1 AUTHENTICATE XOAUTH2 " + new Buffer(["user=testuser", "auth=Bearer zzz", "", ""].join("\x01")).toString("base64"),
+            "A1 AUTHENTICATE XOAUTH2 " + Buffer.from(["user=testuser", "auth=Bearer zzz", "", ""].join("\x01")).toString("base64"),
             "",
             "ZZ LOGOUT"
         ];
@@ -64,7 +64,7 @@ module.exports["XOAUTH2"] = {
 
     "Login success": function(test) {
         var cmds = [
-            "A1 AUTHENTICATE XOAUTH2 " + new Buffer(["user=testuser", "auth=Bearer testtoken", "", ""].join("\x01")).toString("base64"),
+            "A1 AUTHENTICATE XOAUTH2 " + Buffer.from(["user=testuser", "auth=Bearer testtoken", "", ""].join("\x01")).toString("base64"),
             "ZZ LOGOUT"
         ];
 

@@ -57,7 +57,7 @@ module.exports["Auth Plain enabled"] = {
         var cmds = [
             "A1 CAPABILITY",
             "A2 AUTHENTICATE PLAIN",
-            new Buffer("\x00wrong\x00pass", "utf-8").toString("base64"),
+            Buffer.from("\x00wrong\x00pass", "utf-8").toString("base64"),
             "ZZ LOGOUT"
         ];
 
@@ -72,7 +72,7 @@ module.exports["Auth Plain enabled"] = {
     "Login Success": function(test) {
         var cmds = ["A1 CAPABILITY",
             "A2 AUTHENTICATE PLAIN",
-            new Buffer("\x00testuser\x00testpass", "utf-8").toString("base64"),
+            Buffer.from("\x00testuser\x00testpass", "utf-8").toString("base64"),
             "ZZ LOGOUT"
         ];
 
@@ -86,7 +86,7 @@ module.exports["Auth Plain enabled"] = {
     "Invalid SASL-IR Login": function(test) {
         var cmds = [
             "A1 CAPABILITY",
-            "A2 AUTHENTICATE PLAIN " + new Buffer("\x00testuser\x00testpass", "utf-8").toString("base64"),
+            "A2 AUTHENTICATE PLAIN " + Buffer.from("\x00testuser\x00testpass", "utf-8").toString("base64"),
             "ZZ LOGOUT"
         ];
 
@@ -121,7 +121,7 @@ module.exports["Auth Plain with SASL-IR"] = {
     "Invalid Login": function(test) {
         var cmds = [
             "A1 CAPABILITY",
-            "A2 AUTHENTICATE PLAIN " + new Buffer("\x00wrong\x00pass", "utf-8").toString("base64"),
+            "A2 AUTHENTICATE PLAIN " + Buffer.from("\x00wrong\x00pass", "utf-8").toString("base64"),
             "ZZ LOGOUT"
         ];
 
@@ -137,7 +137,7 @@ module.exports["Auth Plain with SASL-IR"] = {
     "Login Success": function(test) {
         var cmds = ["A1 CAPABILITY",
             "A2 AUTHENTICATE PLAIN",
-            new Buffer("\x00testuser\x00testpass", "utf-8").toString("base64"),
+            Buffer.from("\x00testuser\x00testpass", "utf-8").toString("base64"),
             "ZZ LOGOUT"
         ];
 
@@ -152,7 +152,7 @@ module.exports["Auth Plain with SASL-IR"] = {
     "Successful SASL-IR Login": function(test) {
         var cmds = [
             "A1 CAPABILITY",
-            "A2 AUTHENTICATE PLAIN " + new Buffer("\x00testuser\x00testpass", "utf-8").toString("base64"),
+            "A2 AUTHENTICATE PLAIN " + Buffer.from("\x00testuser\x00testpass", "utf-8").toString("base64"),
             "ZZ LOGOUT"
         ];
 
